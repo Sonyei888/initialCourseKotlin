@@ -35,6 +35,7 @@ class ImcCalculatorActivity : AppCompatActivity() {
     private var currentAge: Int = 30
     private var currentHeight: Int = 120
 
+
     companion object{
         const val IMC_KEY = "IMC_RESULT"
     }
