@@ -11,6 +11,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.sonyei888.androidmaster.firstapp.FirstAppActivity
 import com.sonyei888.androidmaster.imccalculator.ImcCalculatorActivity
+import com.sonyei888.androidmaster.settings.SettingsActivity
 import com.sonyei888.androidmaster.superheroapp.SuperHeroListActivity
 import com.sonyei888.androidmaster.todoapp.TodoActivity
 
@@ -18,7 +19,7 @@ class MenuActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+       // AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         setContentView(R.layout.activity_menu)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -33,12 +34,19 @@ class MenuActivity : AppCompatActivity() {
         val btnImcApp = findViewById<Button>(R.id.btnIMCApp)
         val btnToDo = findViewById<Button>(R.id.btnToDo)
         val btnSuperhero = findViewById<Button>(R.id.btnSuperhero)
+        val btnSettings = findViewById<Button>(R.id.btnSettings)
 
         btnSaludApp.setOnClickListener { navigateToSaludApp() }
         btnImcApp.setOnClickListener { navigateToImcApp() }
         btnToDo.setOnClickListener { navigateToTodoApp() }
         btnSuperhero.setOnClickListener { navigateToSuperheroApp() }
+        btnSettings.setOnClickListener { navigateToSettings() }
 
+    }
+
+    private fun navigateToSettings() {
+        val intent = Intent(this, SettingsActivity::class.java)
+        startActivity(intent)
     }
 
     private fun navigateToSuperheroApp() {
